@@ -91,6 +91,12 @@
             <artifactId>picketbox</artifactId>
             <version>${picketbox.version}</version>
             <scope>provided</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>xml-apis</groupId>
+                    <artifactId>xml-apis</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
     </dependencies>

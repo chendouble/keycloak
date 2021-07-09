@@ -1801,6 +1801,12 @@
                     <artifactId>graphene-webdriver</artifactId>
                     <version>${arquillian-graphene.version}</version>
                     <type>pom</type>
+                    <exclusions>
+                        <exclusion>
+                            <groupId>xml-apis</groupId>
+                            <artifactId>xml-apis</artifactId>
+                        </exclusion>
+                    </exclusions>
                 </dependency>
                 <dependency>
                     <groupId>org.jboss.arquillian.protocol</groupId>
