@@ -131,8 +131,11 @@ public class WebAuthnRegister implements RequiredActionProvider, CredentialRegis
                         return Base64Url.encodeBase64ToBase64Url(credModel.getWebAuthnCredentialData().getCredentialId());
                     }).collect(Collectors.joining(","));
         }
+        String isSetRetry = "";
+        if(context.getHttpRequest().getHttpHeaders().getMediaType()!=null){
+            isSetRetry = context.getHttpRequest().getDecodedFormParameters().getFirst(WebAuthnConstants.IS_SET_RETRY);
+        }
 
-        String isSetRetry = context.getHttpRequest().getDecodedFormParameters().getFirst(WebAuthnConstants.IS_SET_RETRY);
 
         Response form = context.form()
                 .setAttribute(WebAuthnConstants.CHALLENGE, challengeValue)
